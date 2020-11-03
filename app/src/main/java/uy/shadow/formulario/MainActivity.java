@@ -14,60 +14,56 @@ import android.widget.EditText;
 
 import java.util.Calendar;
 
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.CalendarView;
+import android.widget.DatePicker;
+
+import com.google.android.material.textfield.TextInputEditText;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Button btnConfirmar = (Button)  findViewById(R.id.btnConfirmar);
+        TextInputEditText tiNombre = (TextInputEditText) findViewById(R.id.tiNombre);
+        DatePicker cvFechaNacimiento = (DatePicker) findViewById((R.id.cvCalendario));
+        TextInputEditText tiTelefono = (TextInputEditText) findViewById(R.id.tiTelefono);
+        TextInputEditText tiEMail = (TextInputEditText) findViewById(R.id.tiEMail);
+        TextInputEditText tiDescipcionContacto = (TextInputEditText) findViewById(R.id.tiDescipcionContacto);
+        //cvFechaNacimiento.updateDate(2019, ,04);
 
-        final Button btnEditar = findViewById(R.id.ButtonR);
-
-        final EditText Nom = findViewById(R.id.NombreR);
-        final View Fech = findViewById(R.id.FechaR);
-        final EditText Tel = findViewById(R.id.TelefonoR);
-        final EditText Eml = findViewById(R.id.EmailR);
-        final EditText Desc = findViewById(R.id.DescripcionR);
-
-        btnEditar.setOnClickListener(new View.OnClickListener() {
+        btnConfirmar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
+                //SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                //String selectedDate = sdf.format(new Date(cvFechaNacimiento.getDayOfMonth()));
+                Log.i("FechaNacimiento",String.valueOf(cvFechaNacimiento.getDayOfMonth()));
+                Intent intent = new Intent(MainActivity.this,DetallesFormulario.class);
+                intent.putExtra("nombre",tiNombre.getText().toString());
+                intent.putExtra("telefono",tiTelefono.getText().toString());
+                intent.putExtra("email",tiEMail.getText().toString());
+                intent.putExtra("decripcion",tiDescipcionContacto.getText().toString());
+                intent.putExtra("diaNacimiento",String.valueOf(cvFechaNacimiento.getDayOfMonth()));
+                intent.putExtra("mesNacimiento",String.valueOf(cvFechaNacimiento.getMonth()));
+                intent.putExtra("añoNacimiento",String.valueOf(cvFechaNacimiento.getYear()));
+                startActivity(intent);
 
-                Intent enviarDatos = new Intent(MainActivity.this, DetallesFormulario.class);
-                enviarDatos.putExtra("Nombre", Nom.getText().toString());
-                enviarDatos.putExtra("Fecha", Fech.toString());
-                enviarDatos.putExtra("Telefono", Tel.getText().toString());
-                enviarDatos.putExtra("Email", Eml.getText().toString());
-                enviarDatos.putExtra("Descripcion", Desc.getText().toString());
-                startActivity(enviarDatos);
-                finish();
+
             }
         });
+
     }
-
-    public static class DatePickerFragment extends DialogFragment
-            implements DatePickerDialog.OnDateSetListener {
-
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current date as the default date in the picker
-            final Calendar c = Calendar.getInstance();
-            int year = c.get(Calendar.YEAR);
-            int month = c.get(Calendar.MONTH);
-            int day = c.get(Calendar.DAY_OF_MONTH);
-
-            // Create a new instance of DatePickerDialog and return it
-            return new DatePickerDialog(getActivity(), this, year, month, day);
-        }
-
-        public void onDateSet(DatePicker view, int year, int month, int day) {
-            // Do something with the date chosen by the user
-        }
-    }
-
-    public void showDatePickerDialog(View v) {
-        DialogFragment newFragment = new DatePickerFragment();
-        newFragment.show(getSupportFragmentManager(), "datePicker");
-    }
-
 }

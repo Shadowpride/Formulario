@@ -1,75 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    android:layout_gravity="end|bottom"
+    android:layout_margin="16dp">
 
-    <EditText
-        android:id="@+id/NombreR"
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop2"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/Inombre_completo"
+        android:layout_height="wrap_content">
 
-        android:inputType="text"
-        android:ems="10"/>
+        <LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:context=".MainActivity"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tvTituloFormulario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/formulario_datos_persona"
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp"
+                android:textStyle="bold"
 
-    <Button
-        android:id="@+id/FechaR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop2"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/Ifecha_de_nacimiento"
-        android:onClick="showDatePickerDialog" />
+                />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/campo_nombre"
+                android:layout_marginBottom="10dp"
+                >
 
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiNombre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/TelefonoR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop2"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/telefono"
+            <DatePicker
+                android:id="@+id/cvCalendario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/campo_fecha_nacimiento"
+                    android:paddingLeft="10dp"/>
+            </DatePicker>
 
-        android:inputType="number"
-        android:ems="10"/>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                >
 
-    <EditText
-        android:id="@+id/EmailR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop2"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/email"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:hint="@string/campo_telefono"
+                    android:inputType="number"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/campo_email"
+                android:layout_marginBottom="10dp"
+                >
 
-        android:inputType="textEmailAddress"
-        android:ems="10"/>
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiEMail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/campo_descripcion_contacto"
+                android:layout_marginBottom="10dp"
+                >
 
-    <EditText
-        android:id="@+id/DescripcionR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/marginTop2"
-        android:layout_gravity="center_horizontal"
-        android:hint="@string/descripcion_del_contacto"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tiDescipcionContacto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+            <Button
+                android:id="@+id/btnConfirmar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/texto_boton_confirmar"
+                android:layout_gravity="right"/>
+        </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-        android:inputType="text"
-        android:ems="10"/>
-
-    <Button
-        android:id="@+id/ButtonR"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/marginTop2"
-        android:text="@string/siguiente"/>
-
-
-
-</LinearLayout>
+</ScrollView>

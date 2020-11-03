@@ -1,36 +1,14 @@
 <resources>
-    <string name="app_name">Formulario</string>
-
-    <string name="nombre">Nombre Completo</string>
-    <string name="fecha">Fecha de Nacimiento</string>
-    <string name="telefono">Telefono</string>
-    <string name="email">Email</string>
-    <string name="descripcion">Descripcion</string>
-    <string name="titulo">Confirmar</string>
-
-
-    <string name="pnombre">Nombre:</string>
-    <string name="pfecha">Fecha de nacimiento:</string>
-    <string name="ptelefono">Telefono:</string>
-    <string name="pemail">Email:</string>
-    <string name="pdescripcion">Descripcion:</string>
-    <string name="pbutton">Button:</string>
-
-
-    <string name="nombrer">Nombre:</string>
-    <string name="fechar">Fecha de nacimiento:</string>
-    <string name="telefonor">Telefono:</string>
-    <string name="emailr">Email:</string>
-    <string name="descripcionr">Descripcion:</string>
-
-
-
-    <string name="Inombre_completo">Nombre completo</string>
-    <string name="Ifecha_de_nacimiento">Fecha de nacimiento</string>
-    <string name="Iemail">Email</string>
-    <string name="descripcion_del_contacto">Descripcion del contacto</string>
-    <string name="siguiente">Siguiente</string>
-    <string name="editar">Editar Datos</string>
+    <string name="app_name">DatosPersona</string>
+    <string name="campo_nombre">Nombre:</string>
+    <string name="campo_fecha_nacimiento">Fecha Nacimiento:</string>
+    <string name="campo_telefono">Telefono:</string>
+    <string name="campo_email">E-Mail:</string>
+    <string name="campo_descripcion_contacto">Descripcion Contacto:</string>
+    <string name="texto_boton_confirmar">Enviar Datos</string>
+    <string name="titulo_confirmar_datos">Confirmar Datos</string>
+    <string name="boton_modificar">Modificar</string>
+    <string name="formulario_datos_persona">Formulario Datos Persona</string>
 
 
 </resources>
