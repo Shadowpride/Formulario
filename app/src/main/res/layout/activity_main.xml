@@ -18,16 +18,14 @@
         android:inputType="text"
         android:ems="10"/>
 
-    <EditText
+    <Button
         android:id="@+id/FechaR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTop2"
         android:layout_gravity="center_horizontal"
         android:hint="@string/Ifecha_de_nacimiento"
-
-        android:inputType="date"
-        android:ems="10"/>
+        android:onClick="showDatePickerDialog" />
 
 
 
